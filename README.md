@@ -1,6 +1,6 @@
-# Oauth2
+# Spring Security OAuth2
 
-## Oauth2-authserver
+## OAuth2-authserver
 
 ### 啟動
 
@@ -22,4 +22,4 @@ insert into oauth_client_details (client_id, client_secret, scope, authorized_gr
 ```
 $ curl sample:samplesecret@localhost:8888/oauth2-server/oauth/token -d grant_type=authorization_code -d client_id=sample -d redirect_uri=http://example.com -d code=mKkwZK 
 => code 換成自己取得的
-```
+``
