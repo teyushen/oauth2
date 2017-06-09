@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>org.example</groupId>
-	<artifactId>oauth2server</artifactId>
+	<artifactId>authserver</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Spring oauth2 authorization server</name>
 	
