@@ -1,6 +1,6 @@
 # Spring Security OAuth2
 
-## authserver
+## authorization-server
 
 ### 啟動
 
