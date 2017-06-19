@@ -38,7 +38,7 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
 	}
 
 	@Bean
-	public JwtAccessTokenConverter jwtTokenEnhancer() {
+	public JwtAccessTokenConverter jwtTokenConverter() {
 		JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
 		String pwd = environment.getProperty("keystore.password");
 		KeyPair keyPair = new KeyStoreKeyFactory(new ClassPathResource("jwt.jks"), pwd.toCharArray()).getKeyPair("jwt");
@@ -53,7 +53,7 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.authenticationManager(authenticationManager).accessTokenConverter(jwtTokenEnhancer());
+		endpoints.authenticationManager(authenticationManager).accessTokenConverter(jwtTokenConverter());
 	}
 
 	@Override
