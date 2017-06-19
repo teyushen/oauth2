@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 @EnableResourceServer
-public class Application {
-	private static final Log log = LogFactory.getLog(Application.class);
+public class AuthorizationApplication {
+	private static final Log log = LogFactory.getLog(AuthorizationApplication.class);
 
 	public static void main(String[] args) throws Exception {
-		ConfigurableApplicationContext ctx = SpringApplication.run(Application.class, args);
+		ConfigurableApplicationContext ctx = SpringApplication.run(AuthorizationApplication.class, args);
 	}
 
 	

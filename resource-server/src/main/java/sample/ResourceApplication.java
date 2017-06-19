@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 @EnableResourceServer
-public class Application {
+public class ResourceApplication {
 
 	public static void main(String[] args) throws Exception {
-		ConfigurableApplicationContext ctx = SpringApplication.run(Application.class, args);
+		ConfigurableApplicationContext ctx = SpringApplication.run(ResourceApplication.class, args);
 	}
 
 	private String message = "Hello world!";
