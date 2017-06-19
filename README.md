@@ -9,11 +9,6 @@ $ cd authorization-server
 $ mvn spring-boot:run
 ```
 
-### 新增資料
-
-```
-insert into oauth_client_details (client_id, client_secret, scope, authorized_grant_types) values ('sample', 'samplesecret', 'read,delete', 'authorization_code,password');
-```
 ### 取得 code
 
 [http://localhost:8888/authorization-server/oauth/authorize?response_type=code&client_id=sample&redirect_uri=http://example.com](http://localhost:8888/authorization-server/oauth/authorize?response_type=code&client_id=sample&redirect_uri=http://example.com)
@@ -46,4 +41,5 @@ $ mvn spring-boot:run
 ```
 $ TOKEN=f8d33487-b560-4564-adb3-ea88de7e49dd
 $ curl -H "Authorization: Bearer $TOKEN" -v localhost:9999/resource-server/
+$ curl -H "Authorization: Bearer $TOKEN" -v localhost:9999/resource-server/user
 ```
