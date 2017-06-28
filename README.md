@@ -42,7 +42,7 @@ $ mvn spring-boot:run
 ### 對 resource server 發送請求
 
 ```
-$ TOKEN=f8d33487-b560-4564-adb3-ea88de7e49dd
+$ TOKEN=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0OTg2NjkxNDQsInVzZXJfbmFtZSI6InVzZXIiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiMmU0N2FiZWItYjQzNC00MzlhLWI0NDUtN2U0YTlhNzE4ODlkIiwiY2xpZW50X2lkIjoic2FtcGxlIiwic2NvcGUiOlsicmVhZCIsImRlbGV0ZSJdfQ.YjKEO_p765h1_XJxEbv1jXSqFptMPuIj9kW47enGNXUu3Vxh0er2BGY4pGVYWtgLCALcGgagC_JcB6JWfqo0oGlRJOM5SeHGj-jh2-Zk-bTf7RfXPlRxqfZEg3bCUL19NwCbMvzqm3vVq6CuDYF3UYSOLCphRnhW1rKtj3MVQKHN2MIHVXHW9aPxvc4A3olpkbbTtHzhJ6WzptCqmlfW9buN57mUnRWC6rExDb0aCD_dZXd0EHJdQJCjHaMXLHZpnjWkCvfA_8KDs2lkcGw8Xrk120Cp7fIYMJDLtQ8Q_yEtc26AODmj5uDSnhI8vjnkUKl4w_juXxcyxJhq4hwSgg
 $ curl -H "Authorization: Bearer $TOKEN" -v localhost:9999/resource-server/
 $ curl -H "Authorization: Bearer $TOKEN" -v localhost:9999/resource-server/user
 ```
