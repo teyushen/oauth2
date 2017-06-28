@@ -6,7 +6,7 @@
 	<name>Spring oauth2 authorization server</name>
 
 	<parent>
-		<groupId>org.example</groupId>
+		<groupId>blog.keeplearning</groupId>
 		<artifactId>oauth2</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>

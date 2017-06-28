@@ -2,7 +2,6 @@ package sample.config;
 
 import java.security.KeyPair;
 
-import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,9 +13,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
 
 @Configuration
@@ -24,18 +21,10 @@ import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFacto
 public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
 
 	@Autowired
-	private DataSource dataSource;
-
-	@Autowired
 	private AuthenticationManager authenticationManager;
 
 	@Autowired
 	private Environment environment;
-
-	@Bean
-	public JdbcClientDetailsService jdbcClientDetailsService() {
-		return new JdbcClientDetailsService(dataSource);
-	}
 
 	@Bean
 	public JwtAccessTokenConverter jwtTokenConverter() {
@@ -48,7 +37,8 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.jdbc(dataSource).clients(jdbcClientDetailsService());
+		clients.inMemory().withClient("sample").secret("samplesecret")
+				.authorizedGrantTypes("authorization_code", "refresh_token", "password").scopes("read", "delete");
 	}
 
 	@Override

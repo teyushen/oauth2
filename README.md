@@ -1,4 +1,4 @@
-# Spring Security OAuth2
+# Spring Security OAuth2(use JWT)
 
 ## authorization-server
 
@@ -9,11 +9,6 @@ $ cd authorization-server
 $ mvn spring-boot:run
 ```
 
-### 新增資料
-
-```
-insert into oauth_client_details (client_id, client_secret, scope, authorized_grant_types) values ('sample', 'samplesecret', 'read,delete', 'authorization_code,password');
-```
 ### 取得 code
 
 [http://localhost:8888/authorization-server/oauth/authorize?response_type=code&client_id=sample&redirect_uri=http://example.com](http://localhost:8888/authorization-server/oauth/authorize?response_type=code&client_id=sample&redirect_uri=http://example.com)
@@ -25,12 +20,15 @@ $ curl sample:samplesecret@localhost:8888/authorization-server/oauth/token -d gr
 (code 換成自己取得的)
 ```
 
-### 利用 token 取得 user 資料
+### 建立自己的 keystore
+
+generate keystore:
+
 ```
-$ TOKEN=f8d33487-b560-4564-adb3-ea88de7e49dd
-$ curl -H "Authorization: Bearer $TOKEN" -v localhost:8888/authorization-server/user
+$ keytool -genkeypair -alias jwt -keyalg RSA -keystore jwt.jks -keypass mySampleKey -storepass mySampleKey -dname "CN=sample, OU=keeplearning, C=Taipei, C=TW"
 ```
 
+可替換成自己產生的 `jwt.jks`
 
 ## resource-server
 
@@ -46,4 +44,5 @@ $ mvn spring-boot:run
 ```
 $ TOKEN=f8d33487-b560-4564-adb3-ea88de7e49dd
 $ curl -H "Authorization: Bearer $TOKEN" -v localhost:9999/resource-server/
+$ curl -H "Authorization: Bearer $TOKEN" -v localhost:9999/resource-server/user
 ```

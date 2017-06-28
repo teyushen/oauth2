@@ -6,7 +6,7 @@
 	<name>Spring oauth2 authorization server</name>
 
 	<parent>
-		<groupId>org.example</groupId>
+		<groupId>blog.keeplearning</groupId>
 		<artifactId>oauth2</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
@@ -15,12 +15,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<!-- JPA Data (We are going to use Repositories, Entities, Hibernate, etc...) -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
 		<!-- tag::security[] -->
@@ -32,12 +26,6 @@
 		<dependency>
 			<groupId>org.springframework.security.oauth</groupId>
 			<artifactId>spring-security-oauth2</artifactId>
-		</dependency>
-
-		<!-- Use MySQL Connector-J -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-jwt -->
