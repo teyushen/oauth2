@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 @EnableResourceServer
+@EnableGlobalMethodSecurity(prePostEnabled=true)
 public class ResourceApplication {
 
 	public static void main(String[] args) throws Exception {
@@ -30,6 +31,7 @@ public class ResourceApplication {
 		return Collections.singletonMap("message", message);
 	}
 
+	@PreAuthorize("#oauth2.hasAnyScope('read')")
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public Map<String, String> user(Principal user) {
 		return Collections.singletonMap("message", "user is: " + user.toString());

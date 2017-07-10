@@ -25,12 +25,6 @@ $ curl sample:samplesecret@localhost:8888/authorization-server/oauth/token -d gr
 (code 換成自己取得的)
 ```
 
-### 利用 token 取得 user 資料
-```
-$ TOKEN=f8d33487-b560-4564-adb3-ea88de7e49dd
-$ curl -H "Authorization: Bearer $TOKEN" -v localhost:8888/authorization-server/user
-```
-
 
 ## resource-server
 
@@ -44,6 +38,6 @@ $ mvn spring-boot:run
 ### 對 resource server 發送請求
 
 ```
-$ TOKEN=f8d33487-b560-4564-adb3-ea88de7e49dd
+$ TOKEN=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0OTk0Mzg1MjUsInVzZXJfbmFtZSI6InVzZXIiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiZGI4OTRmMmItYTIyOS00YTQ5LTkyYzgtZDY5NTUwMDVkNzYyIiwiY2xpZW50X2lkIjoic2FtcGxlIiwic2NvcGUiOlsicmVhZCIsImRlbGV0ZSJdfQ.NC8jm1bPL5E0dHT-tuDVeDrMNmVVWL9jmXTJWwZ7TX8cV65bkk6i15u_nEA8xWZTZsA6M5o-1yiUqK_iKFN1_xZgpwR607lisAMIIZod_CqwjQc_Vuhm1BfuR8ByTbBvTh1eZiAmZi2IyQxawodEC9a_peX3gZ6XrDl6xbxb4kXtFLfiWz9jXv4I7zBfHKnlIiDAp6FKHx1Axev416SMmY9NPGt3yX3UY2xYOwX7nLMTr2l__5yGMkzK_JhVVlbgRl0Xu90SwyoKuxaPuAoyQTqUCwYtIKY-0Wx8X0hh2ku6SzYpmT-ViEl8Xj9NXRv4Iq5yuT78_r_WgdKVh9URBw
 $ curl -H "Authorization: Bearer $TOKEN" -v localhost:9999/resource-server/
 ```
